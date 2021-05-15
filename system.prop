@@ -1,6 +1,6 @@
-ro.adb.secure=0
-ro.boot.avb_version=1.1
-ro.boot.vbmeta.avb_version=1.1
 ro.vendor.mediatek.platform=MT6885
-ro.boot.dynamic_partitions = false
-
+ro.mtk_tee_gp_support=1
+ro.mtk_microtrust_tee_support=1
+ro.mtk_soter_support=1
+ro.boot.avb_version=1.0
+ro.boot.vbmeta.avb_version=1.0
