@@ -1,0 +1,90 @@
+import /microtrust.rc
+
+on init
+    # Create a more standard /dev/block layout for our scripts
+    symlink /dev/block/platform/bootdevice /dev/block/bootdevice
+    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
+
+on fs
+    mkdir /mnt/vendor 0700 root root
+    mkdir /mnt/vendor/protect_f 0700 root root
+    mkdir /mnt/vendor/protect_s 0700 root root
+    mkdir /mnt/vendor/nvdata 0700 root root
+    mkdir /mnt/vendor/nvcfg 0700 root root
+    mkdir /mnt/vendor/persist 0700 root root
+    mount ext4 /dev/block/platform/bootdevice/by-name/protect1 /mnt/vendor/protect_f
+    mount ext4 /dev/block/platform/bootdevice/by-name/protect2 /mnt/vendor/protect_s
+    mount ext4 /dev/block/platform/bootdevice/by-name/nvdata /mnt/vendor/nvdata
+    mount ext4 /dev/block/platform/bootdevice/by-name/nvcfg /mnt/vendor/nvcfg
+    mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist
+    symlink /mnt/vendor/protect_f /vendor/protect_f
+    symlink /mnt/vendor/protect_s /vendor/protect_s
+    symlink /mnt/vendor/nvcfg /vendor/nvcfg
+    symlink /mnt/vendor/nvdata /vendor/nvdata
+
+    install_keyring
+
+on post-fs
+
+service keystore_auth /system/bin/keystore_auth
+    oneshot
+    user system
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keystore /system/bin/keystore /tmp/misc/keystore
+    user root
+    group root drmrpc readproc
+    disabled
+    seclabel u:r:recovery:s0
+
+service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keymaster-4-0 /system/bin/android.hardware.keymaster@4.0-service.beanpod
+    user root
+    group root drmrpc
+    disabled
+    seclabel u:r:recovery:s0
+
+service capi-2-0 /system/bin/vendor.microtrust.hardware.capi@2.0-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+on property:hwservicemanager.ready=true
+    write /proc/bootprof "start teei_daemon (on fs)"
+    start teei_daemon
+    write /proc/bootprof "start teei_daemon end (on fs)"
+    start keymaster-4-0
+    start gatekeeper-1-0
+    start capi-2-0
+
+on property:ro.crypto.state=unsupported
+    stop teei_daemon
+    stop keymaster-4-0
+    stop gatekeeper-1-0
+    stop capi-2-0
+    stop servicemanager
+    stop hwservicemanager
+
+on property:ro.crypto.state=unencrypted
+    stop teei_daemon
+    stop keymaster-4-0
+    stop gatekeeper-1-0
+    stop capi-2-0
+    stop servicemanager
+    stop hwservicemanager
+
+on property:twrp.decrypt.done=true
+    stop teei_daemon
+    stop keymaster-4-0
+    stop gatekeeper-1-0
+    stop capi-2-0
+    stop servicemanager
+    stop hwservicemanager

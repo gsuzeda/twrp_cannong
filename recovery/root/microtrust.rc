@@ -13,6 +13,8 @@ service teei_daemon /system/bin/teei_daemon \
     -r 07407000000000000000000000000000 \
     -r 05160000000000000000000000000000 \
     -r 91dba524a6e24909acc48abd7163121a \
+    -r 57f02fe81d5a11ea8d23d7abe98b8462 \
+    -r 08070000000000000000000000008270 \
     -t 08030000000000000000000000000000 \
     -t 85f630e0f0964c5fa2cc268ce04e3da3 \
     -t 98fb95bcb4bf42d26473eae48690d7ea \
@@ -23,7 +25,7 @@ service teei_daemon /system/bin/teei_daemon \
     group system
     seclabel u:r:recovery:s0
     disabled
-    # oneshot
+   # oneshot
 
 on boot
     chown system system /sys/bus/platform/devices/utos/dcih_notify_test
