@@ -73,6 +73,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/xiaomi/cannong
 TARGET_KERNEL_CONFIG := cannong_defconfig
+CONFIG_BLK_DEV_LOOP_MIN_COUNT=21
 
 
 # Platform
@@ -91,12 +92,10 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 134217728
 BOARD_USES_METADATA_PARTITION := true
-TARGET_USERIMAGES_USE_EXT4 := true
-
 BOARD_SUPER_PARTITION_SIZE := 8057257984
 BOARD_SUPER_PARTITION_GROUPS := main
 BOARD_MAIN_SIZE := 8053063680
-BOARD_MAIN_PARTITION_LIST := system product vendor 
+#BOARD_MAIN_PARTITION_LIST := system product vendor odm
 
 # Dynamic Partition handling flags
 
@@ -104,7 +103,7 @@ IGNORE_UPDATE_LOGICAL_PARTITION_ERROR := true # Makes twrp ignore "unable to upd
 ALLOW_LOGICAL_PARTITION_WIPE := true # lets the dynamic partitions be wipable/resizable in twrp > wipe
 
 # these dynamic partitions will get mounted as rw
-#BOARD_RW_DYNAMIC_PARTITIONS_LIST := system vendor product odm
+BOARD_RW_DYNAMIC_PARTITIONS_LIST := system vendor product odm
 
 
 # Workaround for copying error vendor files to recovery ramdisk
@@ -126,9 +125,9 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 2
 
 # Crypto
-#TW_INCLUDE_CRYPTO := true
-#TW_INCLUDE_CRYPTO_FBE := true
-#TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+
 
 
 # TWRP Configuration
@@ -139,7 +138,6 @@ TW_INCLUDE_RESETPROP := true
 TWRP_INCLUDE_LOGCAT := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
-TW_INCLUDE_NTFS_3G := true
 TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
