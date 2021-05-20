@@ -19,8 +19,7 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
 fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
-
-
+	
 	export ALLOW_MISSING_DEPENDENCIES=true
 	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
 	export LC_ALL="C"
@@ -28,7 +27,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 	export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
 	export OF_NO_MIUI_PATCH_WARNING=1
-        export FOX_USE_BASH_SHELL=1
+    export FOX_USE_BASH_SHELL=1
 	export OF_USE_MAGISKBOOT=1
 	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
 	export FOX_ASH_IS_BASH=1
@@ -54,15 +53,15 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_STATUS_H="98"
 	export OF_QUICK_BACKUP_LIST="/boot;/data;"
 	# OTA
-        export OF_KEEP_DM_VERITY=1
-        export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
-        export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
-        export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+    export OF_KEEP_DM_VERITY=1
+    export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
+    export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
+    export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
 	export OF_RUN_POST_FORMAT_PROCESS=1
 	export OF_FBE_METADATA_MOUNT_IGNORE=1
 	#R11
 	export FOX_R11=1
-	export FOX_BUILD_TYPE=Beta
+	export FOX_BUILD_TYPE= Stable
 
 	# maximum permissible splash image size (in kilobytes); do *NOT* increase!
 	export OF_SPLASH_MAX_SIZE=104
