@@ -56,7 +56,12 @@ on post-fs
     #symlink /dev/block/platform/bootdevice/by-name/preloader_a /dev/block/by-name/preloader_ufs_a
     #symlink /dev/block/platform/bootdevice/by-name/preloader_b /dev/block/by-name/preloader_ufs_b
     #end stock
-     
+
+service vendor.vibrator-1-0 /vendor/bin/hw/android.hardware.vibrator@1.0-service
+    class hal
+    user system
+    group system
+
 service keystore_auth /system/bin/keystore_auth
     oneshot
     user system
