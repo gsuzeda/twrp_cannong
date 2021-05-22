@@ -20,6 +20,8 @@ DEVICE_PATH := device/xiaomi/cannong
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
+PB_DISABLE_DEFAULT_DM_VERITY := true
+
 
 # Architecture
 TARGET_ARCH := arm64
