@@ -1,0 +1,45 @@
+version: 2.1
+jobs:
+  build:
+   docker:
+      - image: ubuntu:18.04
+   environment:
+      GIT_EMAIL: 'gabrielsuzeda@gmail.com'
+      GIT_NAME: 'Uzeda'
+      VERSION: '3.0'
+      PBRP_MANIFEST: 'android-10.0'
+      VENDOR: 'xiaomi'
+      DEVICE: 'cannong'
+   steps:
+      - run:
+          command: |
+           echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+           apt-get -y update && apt-get -y upgrade && apt-get -y install bc bison build-essential curl flex g++-multilib gcc gcc-multilib clang git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev unzip openjdk-8-jdk python ccache libtinfo5 repo libstdc++6 wget libssl-dev rsync golang-go
+           mkdir -p ~/bin
+           curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+           chmod a+x ~/bin/repo
+           go get -u github.com/tcnksm/ghr
+           export PATH=/root/go/bin:$PATH
+           git config --global user.email "${GIT_EMAIL}"
+           git config --global user.name "{GIT_NAME}"
+           git config --global color.ui false
+           repo init -u git://github.com/PitchBlackRecoveryProject/manifest_pb.git -b android-10.0
+           repo sync -j$(nproc --all) --force-sync --no-tags --no-clone-bundle --prune --optimized-fetch
+           git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} device/${VENDOR}/${DEVICE}
+           export ALLOW_MISSING_DEPENDENCIES=true
+           export LC_ALL=C
+           source build/envsetup.sh
+           lunch omni_${DEVICE}-eng
+           mka recoveryimage -j$(nproc --all)
+           export BUILDFILE=$(find $(pwd)/out/target/product/${DEVICE}/PBRP*.zip 2>/dev/null)
+           export BUILDFILE_IMG=$(find $(pwd)/out/target/product/${DEVICE}/recovery.img 2>/dev/null)
+           export UPLOAD_PATH=$(pwd)/out/target/product/${DEVICE}/upload/
+           mkdir ${UPLOAD_PATH}
+           cp $BUILDFILE $UPLOAD_PATH
+           cp $BUILDFILE_IMG $UPLOAD_PATH
+           ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -n "Latest Release for $(echo $DEVICE)" -b "PBRP $(echo $VERSION)" -c ${CIRCLE_SHA1} -delete ${VERSION} ${UPLOAD_PATH}
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - build
