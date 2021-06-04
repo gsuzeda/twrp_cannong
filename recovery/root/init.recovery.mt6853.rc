@@ -62,6 +62,9 @@ service vendor.vibrator-1-0 /vendor/bin/hw/android.hardware.vibrator@1.0-service
     user system
     group system
 
+on boot
+    start vendor.vibrator-1-0
+
 service keystore_auth /system/bin/keystore_auth
     oneshot
     user system
