@@ -53,8 +53,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_SCREEN_H="2340"
 	export OF_HIDE_NOTCH=1
 	export OF_ALLOW_DISABLE_NAVBAR=0
-	export TARGET_DEVICE_ALT="cannong, cannon"
-	export OF_TARGET_DEVICES="cannong, cannon"
+	export TARGET_DEVICE_ALT="cannon, cannon"
+	export OF_TARGET_DEVICES="cannon, cannon"
 	export OF_USE_GREEN_LED=0
 	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
@@ -77,13 +77,13 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
 	# Prebuilt Kernel and Dtbs
 	#if [ "$ANDROID_OUTPUT_VERSION" = "11" ]; then
-	#export BOARD_PREBUILT_DTBOIMAGE="device/xiaomi/cannong/prebuilt/dtbo.img"
-	#export BOARD_PREBUILT_DTBIMAGE_DIR="device/xiaomi/cannong/prebuilt/dtb.img"
-	#export TARGET_PREBUILT_KERNEL="device/xiaomi/cannong/prebuilt/Image.gz"
+	#export BOARD_PREBUILT_DTBOIMAGE="device/xiaomi/cannon/prebuilt/dtbo.img"
+	#export BOARD_PREBUILT_DTBIMAGE_DIR="device/xiaomi/cannon/prebuilt/dtb.img"
+	#export TARGET_PREBUILT_KERNEL="device/xiaomi/cannon/prebuilt/Image.gz"
 	#elif [ "$ANDROID_OUTPUT_VERSION" = "10" ]; then
-	#	export BOARD_PREBUILT_DTBOIMAGE="device/xiaomi/cannong/prebuilt/dtbo.img"
-	#	export BOARD_PREBUILT_DTBIMAGE_DIR="device/xiaomi/cannong/prebuilt/dtb.img"
-	#	export TARGET_PREBUILT_KERNEL="device/xiaomi/cannong/prebuilt/Image.gz"
+	#	export BOARD_PREBUILT_DTBOIMAGE="device/xiaomi/cannon/prebuilt/dtbo.img"
+	#	export BOARD_PREBUILT_DTBIMAGE_DIR="device/xiaomi/cannon/prebuilt/dtb.img"
+	#	export TARGET_PREBUILT_KERNEL="device/xiaomi/cannon/prebuilt/Image.gz"
 	#else
 	#	echo -e "${WHITEONRED}-- Build OrangeFox: FATAL ERROR! ${NC}"
 	#	echo -e "${WHITEONRED}-- PLEASE EXPORT THE VAR ANDROID_OUTPUT_VERSION to the version your are building "
