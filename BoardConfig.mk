@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/cannong
+DEVICE_PATH := device/xiaomi/cannon
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
