@@ -17,4 +17,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/omni_cannong.mk
+     $(LOCAL_DIR)/omni_cannon.mk
