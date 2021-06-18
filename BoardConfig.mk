@@ -41,7 +41,7 @@ TARGET_NO_BOOTLOADER := true
 
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := cannon,cannon
+TARGET_OTA_ASSERT_DEVICE := cannon,cannong
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
