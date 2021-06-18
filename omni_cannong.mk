@@ -32,7 +32,7 @@ $(call inherit-product, vendor/omni/config/common.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := cannon
-PRODUCT_NAME := omni_canno
+PRODUCT_NAME := omni_cannon
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := Redmi
 PRODUCT_MANUFACTURER := xiaomi
