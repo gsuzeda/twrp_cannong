@@ -1,4 +1,4 @@
-# Redmi Note 9T Device Tree
+# Redmi Note 9 Device Tree
 
 The Redmi Note 9 5G (codenamed _"cannon"_) is Mid-end smartphone from Xiaomi. It was announced in January 2021.
 
