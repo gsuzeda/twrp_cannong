@@ -1,6 +1,6 @@
 # Redmi Note 9T Device Tree
 
-The Redmi Note 9T 5G (codenamed _"cannong"_) is Mid-end smartphone from Xiaomi. It was announced in January 2021.
+The Redmi Note 9 5G (codenamed _"cannon"_) is Mid-end smartphone from Xiaomi. It was announced in January 2021.
 
 ## Specsheet
 
@@ -15,11 +15,11 @@ The Redmi Note 9T 5G (codenamed _"cannong"_) is Mid-end smartphone from Xiaomi. 
 | Battery                 | Li-Po 5000 mAh, Non-removable                                              |
 | Dimensions              | 161.2 x 77.3 x 9.1 mm (6.35 x 3.04 x 0.36 in)                              |
 | Display                 | 1080 x 2340 pixels, 19.5:9 ratio (~395 ppi density)                        |
-| Rear camera 1           | 48 MP, f/1.8, 26mm (wide), 1/2.0", 0.8µm, PDAF                             |
+| Rear camera 1           | 48 MP, f/1.79, 26mm (wide), 1/2.0", 1.6µm, PDAF                             |
 | Rear camera 2           | 2 MP, f/2.4, (macro)                                                       |
-| Rear camera 3           | 2 MP, f/2.4, (depth)                                                       |
+| Rear camera 3           | 8 MP, f/2.2, (depth)                                                       |
 | Front camera            | 13 MP, f/2.3, 29mm (standard), 1/3.1", 1.12µm                              |
 
 ## Device picture
 
-![Redmi Note 9T 5G](https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-9-5g-1.jpg)
+![Redmi Note 9 5G](https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-9-5g-1.jpg)
