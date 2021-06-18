@@ -41,7 +41,7 @@ TARGET_NO_BOOTLOADER := true
 
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := cannong,cannon
+TARGET_OTA_ASSERT_DEVICE := cannon,cannon
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -70,8 +70,8 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/xiaomi/cannong
-TARGET_KERNEL_CONFIG := cannong_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/cannon
+TARGET_KERNEL_CONFIG := cannon_defconfig
 
 
 # Platform
