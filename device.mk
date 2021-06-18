@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/xiaomi/cannong
+LOCAL_PATH := device/xiaomi/cannon
 
 # Fastbootd
 PRODUCT_PACKAGES += \
