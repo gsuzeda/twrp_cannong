@@ -4,7 +4,7 @@ The Redmi Note 9 5G (codenamed _"cannon"_) is Mid-end smartphone from Xiaomi. It
 
 ## Specsheet
 
-| Device                  | Redmi Note 9T 5G                                                           |
+| Device                  | Redmi Note 9 5G                                                           |
 | ----------------------- | :------------------------------------------------------------------------- |
 | SoC                     | MediaTek Dimensity 800U 5G (7 nm)                                          |
 | CPU                     | Octa-core (2x2.4 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)                    |
