@@ -1,3 +1,4 @@
+
 on property:hwservicemanager.ready=true
     setprop sys.usb.config adb
 
