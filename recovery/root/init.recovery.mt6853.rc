@@ -11,14 +11,15 @@ on fs
     install_keyring
     setprop crypto.ready 1
 
-service vendor.vibrator-1-0 /vendor/bin/hw/android.hardware.vibrator@1.0-service
+service vendor.vibrator-1-0 /system/bin/android.hardware.vibrator@1.0-service
     class hal
-    user system
-    group system
+    user root
+    group root input
+    seclabel u:r:recovery:s0
 
 service keystore_auth /system/bin/keystore_auth
     oneshot
-    user system
+    user root
     group root
     disabled
     seclabel u:r:recovery:s0
@@ -46,6 +47,9 @@ service capi-2-0 /system/bin/vendor.microtrust.hardware.capi@2.0-service
     group root
     disabled
     seclabel u:r:recovery:s0
+
+on boot
+    start vendor.vibrator-1-0
 
 on property:hwservicemanager.ready=true
     start keymaster-4-0
