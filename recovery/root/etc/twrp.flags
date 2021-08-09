@@ -9,23 +9,23 @@
 /system_root      ext4     /dev/block/mapper/system
 /super            emmc     /dev/block/platform/bootdevice/by-name/super        flags=display="super";flashimg=1
 /boot             emmc     /dev/block/platform/bootdevice/by-name/boot         flags=backup=1;flashimg=1
-/data             f2fs     /dev/block/platform/bootdevice/by-name/userdata     flags=fileencryption=aes-256-xts:aes-256-cts:v1wipeingui;wipeduringfactoryreset
-/dtbo             emmc     /dev/block/platform/bootdevice/by-name/dtbo         flags=display="dtbo";flashimg=1
+/data             f2fs     /dev/block/platform/bootdevice/by-name/userdata     flags=backup=1;wipeingui;wipeduringfactoryreset
+/dtbo             emmc     /dev/block/platform/bootdevice/by-name/dtbo         
 /recovery         emmc     /dev/block/platform/bootdevice/by-name/recovery     flags=backup=1;flashimg=1
-/bootloader       emmc     /dev/block/platform/bootdevice/by-name/lk           flags=backup=1
-/bootloader2      emmc     /dev/block/platform/bootdevice/by-name/lk2          flags=backup=1
-/cust             ext4     /dev/block/platform/bootdevice/by-name/cust         flags=backup=1
-/metadata         ext4     /dev/block/platform/bootdevice/by-name/md_udc       flags=backup=1
-/protect_f        ext4     /dev/block/platform/bootdevice/by-name/protect1     flags=backup=1
-/protect_s        ext4     /dev/block/platform/bootdevice/by-name/protect2     flags=backup=1
-/nvdata           ext4     /dev/block/platform/bootdevice/by-name/nvdata       flags=backup=1
-/nvcfg            ext4     /dev/block/platform/bootdevice/by-name/nvcfg        flags=backup=1
-/persist          ext4     /dev/block/platform/bootdevice/by-name/persist      flags=display="persist";
-/nvram            emmc     /dev/block/platform/bootdevice/by-name/nvram        flags=backup=1;flashimg=1
-/proinfo          emmc     /dev/block/platform/bootdevice/by-name/proinfo      flags=backup=1
-/logo             emmc     /dev/block/platform/bootdevice/by-name/logo         flags=backup=1
-/tee1             emmc     /dev/block/platform/bootdevice/by-name/tee1         flags=backup=1
-/tee2             emmc     /dev/block/platform/bootdevice/by-name/tee2         flags=display=backup=1
+/bootloader       emmc     /dev/block/platform/bootdevice/by-name/lk           
+/bootloader2      emmc     /dev/block/platform/bootdevice/by-name/lk2          
+/cust             ext4     /dev/block/platform/bootdevice/by-name/cust        
+/metadata         ext4     /dev/block/platform/bootdevice/by-name/md_udc       
+/protect_f        ext4     /dev/block/platform/bootdevice/by-name/protect1     
+/protect_s        ext4     /dev/block/platform/bootdevice/by-name/protect2     
+/nvdata           ext4     /dev/block/platform/bootdevice/by-name/nvdata       
+/nvcfg            ext4     /dev/block/platform/bootdevice/by-name/nvcfg        
+/persist          ext4     /dev/block/platform/bootdevice/by-name/persist      
+/nvram            emmc     /dev/block/platform/bootdevice/by-name/nvram        
+/proinfo          emmc     /dev/block/platform/bootdevice/by-name/proinfo      
+/logo             emmc     /dev/block/platform/bootdevice/by-name/logo         
+/tee1             emmc     /dev/block/platform/bootdevice/by-name/tee1         
+/tee2             emmc     /dev/block/platform/bootdevice/by-name/tee2         
 /vbmeta           emmc     /dev/block/platform/bootdevice/by-name/vbmeta       flags=display="vbmeta";backup=1;flashimg=1
 
 
