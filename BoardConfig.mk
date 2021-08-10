@@ -52,7 +52,7 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive androidboot.usbconfigfs=true loop.max_part=21
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive androidboot.usbconfigfs=true loop.max_part=255
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
@@ -126,8 +126,8 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
-TW_Y_OFFSET := 115
-TW_H_OFFSET := -115
+TW_Y_OFFSET := 100
+TW_H_OFFSET := -100
 RECOVERY_SDCARD_ON_DATA := true
 TW_INCLUDE_RESETPROP := true
 TWRP_INCLUDE_LOGCAT := true
