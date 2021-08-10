@@ -3,19 +3,12 @@ import /microtrust.rc
 on init
     # Create a more standard /dev/block layout for our scripts
     symlink /dev/block/platform/bootdevice /dev/block/bootdevice
-    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     mkdir /mnt/vendor/persist 0700 root root
     mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist
 
 on fs
     install_keyring
     setprop crypto.ready 1
-
-service vendor.vibrator-1-0 /system/bin/android.hardware.vibrator@1.0-service
-    class hal
-    user root
-    group root input
-    seclabel u:r:recovery:s0
 
 service keystore_auth /system/bin/keystore_auth
     oneshot
@@ -42,25 +35,14 @@ service keymaster-4-0 /system/bin/android.hardware.keymaster@4.0-service.beanpod
     disabled
     seclabel u:r:recovery:s0
 
-service capi-2-0 /system/bin/vendor.microtrust.hardware.capi@2.0-service
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-on boot
-    start vendor.vibrator-1-0
-
 on property:hwservicemanager.ready=true
     start keymaster-4-0
     start gatekeeper-1-0
-    #start capi-2-0
 
 on property:ro.crypto.state=unsupported
     stop teei_daemon
     stop keymaster-4-0
     stop gatekeeper-1-0
-    #stop capi-2-0
     stop servicemanager
     stop hwservicemanager
 
@@ -68,7 +50,6 @@ on property:ro.crypto.state=unencrypted
     stop teei_daemon
     stop keymaster-4-0
     stop gatekeeper-1-0
-    #stop capi-2-0
     stop servicemanager
     stop hwservicemanager
 
@@ -76,6 +57,5 @@ on property:twrp.decrypt.done=true
     stop teei_daemon
     stop keymaster-4-0
     stop gatekeeper-1-0
-    stop capi-2-0
     stop servicemanager
     stop hwservicemanager
