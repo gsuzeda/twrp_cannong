@@ -17,10 +17,6 @@
 #
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-#$(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/embedded.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # Inherit from cannong device
@@ -36,7 +32,3 @@ PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := Redmi
 PRODUCT_MANUFACTURER := xiaomi
 PRODUCT_RELEASE_NAME := Redmi Redmi
-
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31
