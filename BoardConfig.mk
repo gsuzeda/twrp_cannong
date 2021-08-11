@@ -111,6 +111,7 @@ TARGET_COPY_OUT_PRODUCT := product
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
+PLATFORM_SECURITY_PATCH := 2099-12-31
 
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
