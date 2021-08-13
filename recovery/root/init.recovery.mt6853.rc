@@ -10,26 +10,26 @@ on fs
     install_keyring
     setprop crypto.ready 1
 
-service keystore_auth /sbin/keystore_auth
+service keystore_auth /system/bin/keystore_auth
     oneshot
     user root
     group root
     disabled
     seclabel u:r:recovery:s0
 
-service keystore /sbin/keystore /tmp/misc/keystore
+service keystore /system/bin/keystore /tmp/misc/keystore
     user root
     group root drmrpc readproc
     disabled
     seclabel u:r:recovery:s0
 
-service gatekeeper-1-0 /sbin/android.hardware.gatekeeper@1.0-service
+service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     user root
     group root
     disabled
     seclabel u:r:recovery:s0
 
-service keymaster-4-0 /sbin/android.hardware.keymaster@4.0-service.beanpod
+service keymaster-4-0 /vendor/bin/hw/android.hardware.keymaster@4.0-service.beanpod
     user root
     group root drmrpc
     disabled
