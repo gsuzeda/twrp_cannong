@@ -96,15 +96,13 @@ BOARD_USES_METADATA_PARTITION := true
 BOARD_SUPER_PARTITION_SIZE := 8057257984
 BOARD_SUPER_PARTITION_GROUPS := main
 BOARD_MAIN_SIZE := 8053063680
-#BOARD_MAIN_PARTITION_LIST := system product vendor odm
+BOARD_MAIN_PARTITION_LIST := system product vendor odm
 BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist
 
 # Dynamic Partition handling flags
 IGNORE_UPDATE_LOGICAL_PARTITION_ERROR := true # Makes twrp ignore "unable to update logical partition" error
 ALLOW_LOGICAL_PARTITION_WIPE := true # lets the dynamic partitions be wipable/resizable in twrp > wipe
 
-# these dynamic partitions will get mounted as rw
-BOARD_RW_DYNAMIC_PARTITIONS_LIST := system vendor product odm
 
 # Workaround for copying error vendor files to recovery ramdisk
 TARGET_COPY_OUT_VENDOR := vendor
