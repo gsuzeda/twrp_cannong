@@ -77,8 +77,6 @@ BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
-#Fstab
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6853
@@ -95,18 +93,17 @@ PLATFORM_VERSION := 16.1.0
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 134217728
 BOARD_USES_METADATA_PARTITION := true
-BOARD_SUPER_PARTITION_SIZE := 8057257984
+BOARD_SUPER_PARTITION_SIZE := 9126805504
+BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3087618048
 BOARD_SUPER_PARTITION_GROUPS := main
 BOARD_MAIN_SIZE := 8053063680
-#BOARD_MAIN_PARTITION_LIST := system product vendor odm
+BOARD_MAIN_PARTITION_LIST := system product vendor
 BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist
 
 # Dynamic Partition handling flags
 IGNORE_UPDATE_LOGICAL_PARTITION_ERROR := true # Makes twrp ignore "unable to update logical partition" error
 ALLOW_LOGICAL_PARTITION_WIPE := true # lets the dynamic partitions be wipable/resizable in twrp > wipe
 
-# these dynamic partitions will get mounted as rw
-BOARD_RW_DYNAMIC_PARTITIONS_LIST := system vendor product odm
 
 # Workaround for copying error vendor files to recovery ramdisk
 TARGET_COPY_OUT_VENDOR := vendor
@@ -130,8 +127,8 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
-TW_Y_OFFSET := 100
-TW_H_OFFSET := -100
+TW_Y_OFFSET := 90
+TW_H_OFFSET := -70
 RECOVERY_SDCARD_ON_DATA := true
 TW_INCLUDE_RESETPROP := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
