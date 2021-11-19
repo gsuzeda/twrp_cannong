@@ -20,7 +20,7 @@ fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	
-       
+       	export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1
         export FOX_ADVANCED_SECURITY=1
         export OF_USE_TWRP_SAR_DETECT=1
         export PLATFORM_VERSION="16.1.0"
@@ -71,7 +71,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	#R11
 	export FOX_R11=1
 	export FOX_BUILD_TYPE= Stable
-
+	export FOX_USE_SPECIFIC_MAGISK_ZIP="$PWD/device/xiaomi/cannong/Magisk/Magisk.zip"
+	
 	# maximum permissible splash image size (in kilobytes); do *NOT* increase!
 	export OF_SPLASH_MAX_SIZE=104
 
