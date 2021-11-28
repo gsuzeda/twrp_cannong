@@ -61,6 +61,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_STATUS_INDENT_LEFT="150"
 	export OF_STATUS_H="98"
 	export OF_QUICK_BACKUP_LIST="/boot;/data;"
+	export OF_AB_DEVICE=1
+	export USE_CCACHE=1
+	
 	# OTA
     	export OF_KEEP_DM_VERITY=1
         export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
