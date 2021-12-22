@@ -12,6 +12,13 @@ on fs
 
 on boot
     start health-hal-2-0
+    start vibrator-1-2
+
+service vibrator-1-2 /system/bin/vendor.mtk.hardware.vibrator@1.2-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
 
 service keystore_auth /system/bin/keystore_auth
     oneshot
