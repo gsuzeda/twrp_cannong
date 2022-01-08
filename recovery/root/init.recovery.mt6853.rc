@@ -41,21 +41,7 @@ on property:hwservicemanager.ready=true
     start keymaster-4-0
     start gatekeeper-1-0
 
-on property:ro.crypto.state=unsupported
-    stop teei_daemon
-    stop keymaster-4-0
-    stop gatekeeper-1-0
-    stop servicemanager
-    stop hwservicemanager
-
-on property:ro.crypto.state=unencrypted
-    stop teei_daemon
-    stop keymaster-4-0
-    stop gatekeeper-1-0
-    stop servicemanager
-    stop hwservicemanager
-
-on property:twrp.decrypt.done=true
+on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop teei_daemon
     stop keymaster-4-0
     stop gatekeeper-1-0
