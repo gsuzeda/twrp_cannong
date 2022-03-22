@@ -4,30 +4,16 @@
 
 # Currently we dont have e2fsck compiled. So fs check would failed.
 
-# <mount_point>  <fstype>  <device>                      <device2>             <flags>
-/recovery         emmc     /dev/block/by-name/recovery     flags=backup=1
-/boot             emmc     /dev/block/by-name/boot         
-/cache            ext4     /dev/block/by-name/cache        
-/persist          ext4     /dev/block/by-name/persist      
-/dtbo             emmc     /dev/block/by-name/dtbo         
-/vbmeta           emmc     /dev/block/by-name/vbmeta       flags=backup=1;flashimg=1
+# <mount_point>  <fstype>  <device>                 <device2>                  <flags>
+/boot             emmc     /dev/block/platform/bootdevice/by-name/boot
+/cache            ext4     /dev/block/platform/bootdevice/by-name/cache
+/recovery         emmc     /dev/block/platform/bootdevice/by-name/recovery
+/metadata         ext4     /dev/block/platform/bootdevice/by-name/metadata
+/dtbo             emmc     /dev/block/platform/bootdevice/by-name/dtbo         flags=display="Dtbo";backup=1;flashimg=1
+/vbmeta           emmc     /dev/block/platform/bootdevice/by-name/vbmeta       flags=display="Vbmeta";backup=1;flashimg=1
+/persist          ext4     /dev/block/platform/bootdevice/by-name/persist      flags=display="Persist";backup=1
 
-/bootloader       emmc     /dev/block/by-name/lk           
-/bootloader2      emmc     /dev/block/by-name/lk2          
-/cust             ext4     /dev/block/by-name/cust        
-/metadata         ext4     /dev/block/by-name/md_udc       
-/logo             emmc     /dev/block/by-name/logo         
-/tee1             emmc     /dev/block/by-name/tee1         
-/tee2             emmc     /dev/block/by-name/tee2         
-/persistent       emmc     /dev/block/by-name/frp
+/persist_image    emmc     /dev/block/platform/bootdevice/by-name/persist      flags=display="Persist Image";flashimg=1
 
-/protect_f        ext4     /dev/block/by-name/protect1     
-/protect_s        ext4     /dev/block/by-name/protect2     
-/nvdata  	  ext4     /dev/block/by-name/nvdata       flags=backup=1;       
-/nvcfg            ext4     /dev/block/by-name/nvcfg        
-/nvram            emmc     /dev/block/by-name/nvram        
-/proinfo          emmc     /dev/block/by-name/proinfo      
-
-/external_sd      vfat     /dev/block/mmcblk0p1         /dev/block/mmcblk0            
-/usb-otg          vfat     /dev/block/sdd1              /dev/block/sdd         flags=storage;wipeingui;removable;
-
+/external_sd      vfat     /dev/block/mmcblk0p1     /dev/block/mmcblk0         flags=storage;wipeingui;removable
+/usb-otg          vfat     /dev/block/sdd1          /dev/block/sdd             flags=storage;wipeingui;removable
