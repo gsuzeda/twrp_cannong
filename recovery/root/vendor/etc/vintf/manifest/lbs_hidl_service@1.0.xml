@@ -1,0 +1,30 @@
+<manifest version="1.0" type="device">
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.lbs</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILbs</name>
+            <instance>mtk_lppe_socket_agps</instance>
+            <instance>mtk_lppe_socket_wlan</instance>
+            <instance>mtk_lppe_socket_bt</instance>
+            <instance>mtk_lppe_socket_sensor</instance>
+            <instance>mtk_lppe_socket_network</instance>
+            <instance>mtk_lppe_socket_ipaddr</instance>
+            <instance>mtk_lppe_socket_lbs</instance>
+            <instance>mtk_framework2agps</instance>
+            <instance>mtk_agps2framework</instance>
+            <instance>mtk_mnld2nlputils</instance>
+            <instance>AgpsInterface</instance>
+            <instance>AgpsDebugInterface</instance>
+            <instance>mtk_meta2mnld</instance>
+            <instance>mtk_debugService2mnld</instance>
+            <instance>mtk_mnld2debugService</instance>
+            <instance>mtk_mnld2mtklogger</instance>
+            <instance>mtk_mtklogger2mnld</instance>
+            <instance>mtk_lbs_log_v2s</instance>
+            <instance>mtk_debugService2agpsd</instance>
+            <instance>mtk_agpsd2debugService</instance>
+        </interface>
+    </hal>
+</manifest>
